@@ -1,0 +1,68 @@
+https://www.raywenderlich.com/418-how-to-save-and-load-a-game-in-unity
+
+-intro scene with instructions and sliders/inputfield/checkboxes etc,  game scene with score, exit scene with -credits and choice to play again or quit.
+
+-Intro: [x]Instructions 
+	[x]dropdown for number of lives 
+	[x]input field for player name (Make this last item in new panel before GameScene)
+	[x]toggle for sound 
+	[x]slider for game speed (speed of the cars only) 
+
+-Game:  [x]show points and lives (counts down) 
+	[x]show the name of the player in the game 
+
+-Exit:  [x]lives and score of last game 
+	[x]credits to Brackeys and modifications by you 
+
+-	[ ]PlayerPrefs as in the tutorial (pause/continue, save a game, load a game,  new game, save as json, music on/off)
+	
+
+-	[ ]finally, record a video of you playing the game and show how you incorporated the modifications. The video should  have sound. 
+
+Music: "Magical Sound Shower (Rhythm Retake Remix)" by Yoshihiro Kunimoto from [Out Run OST]
+https://answers.unity.com/questions/895632/dont-destroy-on-load-return-to-scene-duplicate-mus.html
+Forum post explaining how to prevent the audio duplication bug.
+
+PlayerPrefs variables: String playerName, Int playerScore, Float carSpeed, Int lifeIndex, music
+
+Optional Feature:
+-------------------
+	[x] Extra lives rewarded for reaching score thresholds. (currently every 500pts with max of 3 lives)
+
+
+Hello, this is Alex Ta and here is my game for assignment 3, which is based off of Brackey's tutorial on recreating the Frogger game.
+
+I've personally named mine "Frogs n Cars" since our little frog will be trying his best to avoid cars while crossing the street.
+
+The game has a short and simple introduction explaining the game enough for the player to understand the basics.
+
+My game has three scenes total: the introduction (which has the options to set for the game), the game itself, and then the result screen (which shows results and options to return or end the game).
+
+The first menu shows buttons for [New Game] and [Load Game]. [Load Game] would load a previously saved game, even if the application was exited. The save data (which includes the player name, score, and amount of lives) is all retained using PlayerPrefs.
+
+If the data for amount of lives equal 0, then it will not continue the game and only making a new game is available.
+
+When we press the [New Game] button, the script rewrites the playerprefs to a default value. Here in the settings we can change those values including:
+	The speed of the cars 
+	Whether or not the music is on (which can be changed in game)
+	And the amount of lives.
+Here the player is prompted to enter their name. If the player presses [Play!] without entering a name, the game will not allow them to.
+
+Now on to the game! The UI shows the score on the top left, the player's entered name on the bottom left, and the amount of lives represented by hearts on the bottom right.
+
+Using the directional keys moves the frog one unit in the appropriate direction. Reaching the end adds 100 points to the score.
+
+Getting hit by a car decreases the player's life by one and it is shown by the hearts. 
+
+I've also added a hidden feature where the player can regain hearts back every 500 points. However, I've also capped the amount of lives at 3 to keep the challenge.
+
+If we press the Escape Key, then the game pauses and a pause menu is brought up.
+
+The pause menu also has a toggle button to turn the music on and off.
+The resume button of course resumes the game. The Menu button will return to scene one from the beginning, saving the player stats. Then we can return to the game with [Load Game].
+
+[Quit] automatically goes to the results screen. However, the save data is still retained if the player wishes to load the game again from the main menu. Be careful not to make a New Game if you want to continue though!
+
+The Results screen shows the Player Name, the score obtained, and the number of lives remaining. The player can again return to main menu or quit the game, where a panel shows the credits.
+
+And thus, that concludes assignment 3. Thanks for playing!
